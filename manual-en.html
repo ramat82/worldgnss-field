@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>WorldGNSS Field — Complete Field Manual (English)</title>
+  <meta name="description" content="Complete English field manual for WorldGNSS Field: GNSS surveying, CRS, projects, stakeout, DXF, scan, imports, exports and simulation.">
+  <meta name="robots" content="index,follow,max-image-preview:large">
+  <meta name="theme-color" content="#061525">
+  <link rel="icon" href="favicon.png">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="alternate" hreflang="en" href="manual-en.html">
+  <link rel="alternate" hreflang="fr" href="WorldGNSS_Field_Manuel_Terrain_FR_Illustre_Complet_1.1.pdf">
+  <link rel="alternate" hreflang="ar" href="manual-ar.html">
+  <style>
+    .manual-hero{padding:56px 0 34px;background:linear-gradient(180deg,#07192b,#061525)}
+    .manual-hero h1{margin:.15em 0;font-size:clamp(2rem,5vw,3.8rem)}
+    .manual-wrap{max-width:980px;margin:auto;padding:0 20px}
+    .manual-main{padding:34px 0 70px;background:#f7f9fb;color:#17212b}
+    .manual-main h2{color:#092037;margin-top:2.4rem;border-bottom:2px solid #d9e2ea;padding-bottom:.35rem}
+    .manual-main h3{color:#113f5f;margin-top:1.55rem}
+    .manual-main p,.manual-main li{line-height:1.7}
+    .manual-main code{background:#e9eef2;padding:.08rem .3rem;border-radius:4px}
+    .toc{columns:2;column-gap:32px;background:white;border:1px solid #dce4ea;border-radius:14px;padding:20px 26px;margin:24px 0}
+    .toc a{display:block;padding:3px 0;color:#0b5d85;text-decoration:none;break-inside:avoid}
+    .note,.warn,.field{padding:13px 16px;border-radius:10px;margin:15px 0;background:white;border-left:5px solid #2f8d5b}
+    .warn{border-left-color:#d18b00;background:#fff8e8}.field{border-left-color:#2580b5;background:#eef8ff}
+    .label{font-weight:900}.toplinks{display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}.toplinks a{font-weight:800}
+    .compact-table{width:100%;border-collapse:collapse;background:white;margin:14px 0}.compact-table th,.compact-table td{border:1px solid #d7e0e7;padding:9px;vertical-align:top;text-align:left}
+    .manual-footer{padding:24px 20px;text-align:center;background:#061525;color:#cbd8e2}.manual-footer a{color:#79e4a5}
+    @media(max-width:720px){.toc{columns:1}.compact-table{font-size:.92rem}}
+    @media print{.topbar,.toplinks,.manual-footer{display:none}.manual-main{background:white}.manual-main h2{break-after:avoid}}
+  </style>
+</head>
+<body>
+<header class="topbar"><div class="wrap nav">
+  <a class="brand" href="index.html"><img src="assets/img/worldgnss-icon.webp" alt="WorldGNSS Field icon"><span>WorldGNSS Field</span></a>
+  <nav class="navlinks" aria-label="Manual languages"><a href="index.html">Website</a><a href="WorldGNSS_Field_Manuel_Terrain_FR_Illustre_Complet_1.1.pdf">FR PDF</a><a href="manual-en.html">EN</a><a href="manual-ar.html">AR</a></nav>
+</div></header>
+
+<section class="manual-hero"><div class="manual-wrap">
+  <div class="eyebrow">Official documentation</div>
+  <h1>WORLDGNSS FIELD</h1>
+  <p class="lead"><strong>Complete Field Manual — English edition</strong></p>
+  <p>This online edition is the English translation of the French master field manual based on audited application version <strong>1.3.2.18 — versionCode 39</strong>. The original 70-page illustrated French PDF remains the visual reference for capture markers C01–C44.</p>
+  <div class="toplinks"><a class="btn primary" href="WorldGNSS_Field_Manuel_Terrain_FR_Illustre_Complet_1.1.pdf" target="_blank" rel="noopener">Open illustrated FR PDF</a><a class="btn secondary" href="manual-ar.html">العربية</a><a class="btn secondary" href="index.html">Back to website</a></div>
+</div></section>
+
+<main class="manual-main"><div class="manual-wrap">
+<section id="s1"><h2>1. Purpose of this manual and conventions</h2>
+<p>This manual describes WorldGNSS Field from a field user's point of view: project preparation, CRS selection, survey management, point measurement, topographic drawing, stakeout, calculations, DXF adjustment, scan/image workflows, import, export and backup.</p>
+<div class="note"><span class="label">VERIFIED IN CODE —</span> Procedures are based on the audited application. A function discussed during development but absent from the audited interface is not presented here as available.</div>
+<h3>1.1 Three labels used throughout the manual</h3>
+<table class="compact-table"><tr><th>Label</th><th>Meaning</th></tr><tr><td>VERIFIED IN CODE</td><td>The function, button or rule exists in the audited version.</td></tr><tr><td>WARNING</td><td>A condition, limitation or safety check to know before operating.</td></tr><tr><td>FIELD TIP</td><td>A practical recommendation; it does not change the software rule.</td></tr></table>
+<h3>1.2 Screen captures</h3><p>The illustrated French edition uses 44 captures made in <strong>SIMULATION MODE</strong>. Functions requiring real GNSS hardware are explained from the code and are identified as such. Capture identifiers C01, C02, etc. are shared by all language editions.</p></section>
+
+<section id="s2"><h2>2. Functional table of contents</h2><div class="toc">
+<a href="#s3">3. Startup: language, Real or Simulation</a><a href="#s4">4. Home screen and navigation</a><a href="#s5">5. CRS / Project</a><a href="#s6">6. Surveys and projects</a><a href="#s7">7. GNSS connections and quality</a><a href="#s8">8. Emlid Reach and local base shift</a><a href="#s9">9. Point surveying</a><a href="#s10">10. Conventional symbols and measured objects</a><a href="#s11">11. Editing points</a><a href="#s12">12. Survey map and STATIC</a><a href="#s13">13. Topographic plan and drawing</a><a href="#s14">14. Automatic survey</a><a href="#s15">15. Area measurement</a><a href="#s16">16. Tilt without IMU</a><a href="#s17">17. Point stakeout</a><a href="#s18">18. Stakeout map selection</a><a href="#s19">19. Line stakeout</a><a href="#s20">20. Intersection</a><a href="#s21">21. Reference line — 7 methods</a><a href="#s22">22. Custom CRS, local shift and TRS2D</a><a href="#s23">23. DXF adjustment</a><a href="#s24">24. Impl-CAD</a><a href="#s25">25. Scan adjustment</a><a href="#s26">26. Impl-Scan</a><a href="#s27">27. CSV/TXT import</a><a href="#s28">28. KML / SHP / DXF import</a><a href="#s29">29. Project exports</a><a href="#s30">30. Backups and field log</a><a href="#s31">31. Simulation, Pro Pack and professional outputs</a><a href="#s32">32. Safety rules and important messages</a><a href="#s33">33. Example: a complete field day</a><a href="#a">Appendix A. Object catalogue</a><a href="#b">Appendix B. Capture plan</a><a href="#c">Appendix C. Field glossary</a>
+</div></section>
+
+<section id="s3"><h2>3. Startup: language, REAL MODE or SIMULATION MODE</h2>
+<h3>3.1 Choose the language</h3><p>At startup WorldGNSS Field offers Automatic, Français, English and العربية. The choice is stored and the interface reloads in the selected language.</p><ol><li>Open WorldGNSS Field.</li><li>Select <strong>English</strong> for this manual.</li><li>Continue to the operating-mode screen.</li></ol>
+<h3>3.2 Choose the operating mode</h3><p>The mode is selected at session start and is not cosmetic: it determines the GNSS source and strictly separates Real and Simulation surveys.</p><div class="note"><span class="label">SIMULATION MODE —</span> WorldGNSS produces a simulated GNSS position. This is the mode used for the manual captures.</div><div class="note"><span class="label">REAL MODE —</span> Intended for a physical GNSS receiver and part of the Pro Pack in the current commercial architecture.</div>
+<h3>3.3 Configure Simulation</h3><ol><li>Tap <strong>SIMULATION MODE</strong>.</li><li>Enter or keep the proposed latitude, longitude and altitude.</li><li>Select the simulation profile if requested.</li><li>Confirm. The chosen position becomes the GNSS source for the session.</li></ol><div class="warn"><span class="label">WARNING —</span> A survey created in Simulation and a survey created in Real mode are not interchangeable. WorldGNSS refuses to open a survey from the wrong mode.</div></section>
+
+<section id="s4"><h2>4. Home screen and general navigation</h2><p>The Home screen displays the current context — active project, CRS and GNSS status — and provides access to the main modules. Bottom navigation available in several screens returns to Project, Survey, Stakeout and Plan.</p>
+<table class="compact-table"><tr><th>Command</th><th>Role</th></tr><tr><td>Language</td><td>Change interface language.</td></tr><tr><td>CRS / CRS settings</td><td>Open CRS settings and custom CRS management.</td></tr><tr><td>Connections</td><td>Open Navigation / GNSS.</td></tr><tr><td>Projects</td><td>Create, open, import, export, back up or close a survey.</td></tr><tr><td>Map</td><td>Open the active survey map.</td></tr><tr><td>Topo modules</td><td>Open Survey, Stakeout, Calculations, DXF and Scan tools.</td></tr><tr><td>Exit</td><td>End the session; in Simulation, the simulated GNSS source is stopped.</td></tr></table></section>
+
+<section id="s5"><h2>5. CRS / Project: country, UTM zone and working CRS</h2><p>WorldGNSS Field keeps geographic WGS84 as the pivot. The working CRS is used for displayed projected coordinates and calculations. Coordinates from an existing survey must never be reinterpreted solely from the phone's current position.</p>
+<h3>5.1 Open CRS selection</h3><ol><li>Open <strong>Projects / Survey management</strong>.</li><li>Tap <strong>Choose working CRS</strong>.</li><li>In CRS / Project choose Locate, Manual, Simulation or Local.</li></ol>
+<h3>5.2 Locate</h3><p>Locate uses the Android phone position to determine the country and UTM zone. It is useful on site when the phone location represents the work area.</p><div class="warn"><span class="label">WARNING —</span> For an existing survey, the phone position is not used to redefine its region. WorldGNSS relies on the survey's own WGS84 geography.</div>
+<h3>5.3 Manual and Simulation</h3><p>These modes let you enter latitude and longitude in decimal degrees, useful for preparing a remote project or testing the worldwide CRS engine without travelling.</p><ol><li>Choose Manual or Simulation.</li><li>Enter latitude and longitude.</li><li>Confirm.</li><li>Check detected country and UTM zone.</li><li>Select the proposed CRS that matches the job.</li></ol>
+<h3>5.4 Proposed CRS list</h3><p>The main list is filtered by country. Relevant national/projected CRS and the corresponding WGS84/UTM system are prioritised; unrelated continental systems are kept out of normal field selection.</p><div class="note"><span class="label">VERIFIED IN CODE —</span> In Algeria, the INCT 2022 workflow retains the intended professional priority while WGS84 remains the transformation pivot.</div>
+<h3>5.5 CRS locking with an active survey</h3><p>Once a survey is active, the session CRS is locked. Close the survey before changing CRS.</p>
+<h3>5.6 Opening a survey from another region</h3><ol><li>Select a session CRS.</li><li>Request the existing survey.</li><li>WorldGNSS checks the survey's WGS84 region.</li><li>The CRS is accepted only if valid for that region.</li><li>A different country, incompatible UTM zone or hemisphere is rejected before activation.</li></ol></section>
+
+<section id="s6"><h2>6. Survey and project management</h2><p>Survey Management is the administrative centre of the job: creation, opening, import, export, media, field log and backup.</p>
+<h3>6.1 Create a survey</h3><ol><li>Check the working CRS.</li><li>Tap New / Create survey.</li><li>Enter the job name.</li><li>Confirm; the survey becomes active.</li></ol><p>In Simulation, the creation flow identifies the survey as a Simulation survey, including the <code>_SIM</code> suffix where applicable.</p>
+<h3>6.2 Open a survey</h3><ol><li>Tap Open.</li><li>Select the survey.</li><li>WorldGNSS first checks Real/Simulation compatibility.</li><li>It then checks the session CRS against the survey's WGS84 region.</li><li>If both checks pass, the survey becomes active.</li></ol>
+<h3>6.3 Close a survey</h3><p>Closing deactivates the current job but does not delete it. This is especially useful before changing the session CRS.</p>
+<h3>6.4 Media and project information</h3><p>The screen shows point count, CRS and topography folder. Notes and Photos summaries give access to project and point media.</p>
+<h3>6.5 Other menu</h3><ul><li><strong>Topo programs:</strong> opens field modules.</li><li><strong>Field log:</strong> displays recorded project events.</li><li><strong>Complete ZIP backup:</strong> creates a survey archive.</li><li><strong>Restore ZIP backup:</strong> validates then restores a WorldGNSS archive.</li><li><strong>Re-authorize TOPOGRAPHIE folder:</strong> renews Android folder access.</li></ul></section>
+
+<section id="s7"><h2>7. GNSS connections and quality rules</h2>
+<h3>7.1 Connections / Navigation screen</h3><p>Navigation groups GNSS status, satellite count, DOP, precision, receiver, project CRS, projected coordinates, WGS84/UTM reference, active survey and RTK base state when available.</p>
+<h3>7.2 In Simulation</h3><p>The simulated GNSS source feeds the screen. Hardware Bluetooth search and connection controls are disabled.</p>
+<h3>7.3 In Real mode</h3><p>Real mode can scan Bluetooth devices, select a receiver, connect and disconnect. Android Bluetooth permissions may be requested. Dedicated ProMark controls and Emlid/base assistants are available from this area.</p>
+<h3>7.4 FIX, FLOAT, SINGLE and precision</h3><table class="compact-table"><tr><th>Status</th><th>Survey behaviour</th></tr><tr><td>RTK FIX</td><td>Normally accepted for measurement.</td></tr><tr><td>RTK FLOAT</td><td>Rejected by default; may be explicitly allowed in precision settings.</td></tr><tr><td>SINGLE</td><td>Rejected by default; may be explicitly allowed. Auto survey does not accept it unattended.</td></tr><tr><td>SIMULATION</td><td>Accepted when the Simulation context is active.</td></tr><tr><td>No GST</td><td>Precision remains unknown (<code>PR ---</code>). WorldGNSS does not invent a value; RTK FIX may still be accepted.</td></tr></table>
+<h3>7.5 Data freshness</h3><p>The engine distinguishes recent, ageing and frozen positions. In the audited code, a GGA younger than 2.5 s is recent and a position around 5 s old is considered frozen; stale data must not be treated as a current measurement.</p>
+<h3>7.6 Survey precision settings</h3><p>By default the precision lock is enabled with a 0.050 m horizontal threshold. Optional PDOP, satellite-count and correction-age checks exist; their default values are PDOP 3.0, minimum 5 satellites and 10 s correction age when enabled.</p>
+<h3>7.7 Antenna height</h3><p>The entered antenna height is subtracted from receiver altitude to obtain the ground-point altitude.</p><div class="field"><span class="label">FIELD TIP —</span> Check antenna height and precision lock before a measurement series. An antenna-height error affects all recorded Z values.</div></section>
+
+<section id="s8"><h2>8. Emlid Reach and local base calibration</h2>
+<h3>8.1 Emlid Reach assistant</h3><p>The assistant does not automatically change Android Wi‑Fi. It guides the user to the receivers' web panels.</p><ol><li>Open the Emlid assistant from Navigation.</li><li>For the base, connect the phone to the base Wi‑Fi.</li><li>Test <code>192.168.42.1</code> and open the Emlid panel.</li><li>Then manually change Android Wi‑Fi to the rover.</li><li>For the rover, test <code>192.168.42.1</code>; <code>192.168.10.12</code> is also proposed as a secondary address.</li><li>Open the required panel and finish the assistant.</li></ol>
+<h3>8.2 Local calibration on a known point</h3><p>Base Calibration computes a local translation <strong>DX/DY/DZ only</strong>; it does not compute rotation or scale.</p><ol><li>Place the rover on the known station.</li><li>Read rover position.</li><li>Enter known X/Y/Z or select a point from the active survey.</li><li>Compute DX, DY and DZ.</li><li>Apply the translation or remove it with Clear.</li></ol><div class="warn"><span class="label">WARNING —</span> Use this module only when a pure translation is the correct model. For rotation + scale, use TRS2D.</div></section>
+
+<section id="s9"><h2>9. Point surveying</h2>
+<h3>9.1 Prepare the survey</h3><ol><li>Create or open an active survey.</li><li>Check CRS and antenna height.</li><li>Check GNSS state and precision lock.</li><li>Open Topo modules &gt; Survey.</li></ol>
+<h3>9.2 Identify the point</h3><p>The point ID can be entered or automatically proposed. Use an explicit project naming convention when possible.</p>
+<h3>9.3 Measure a simple point</h3><ol><li>Enter or verify the ID.</li><li>Choose the category: <strong>TOPO, NETWORKS, VEGET., ROAD or DRAWING</strong>.</li><li>Select the point/object type.</li><li>Check FIX/precision and current coordinates.</li><li>Tap <strong>MEASURE</strong>.</li><li>WorldGNSS applies quality rules and antenna height, then saves the point in the active survey.</li></ol>
+<h3>9.4 Height and precision</h3><p>Displayed and stored height follows the current antenna-height rule. Measurement can be blocked when the active precision rules are not satisfied.</p>
+<h3>9.5 Note</h3><p>A note may be attached to a point for description, condition, identification or field instructions.</p>
+<h3>9.6 Photo</h3><p>A photo may be associated with a point. Keep media meaningful and verify project storage access.</p>
+<h3>9.7 Voice and sounds</h3><p>Voice guidance and beeps provide operational feedback, including successful measurements and guided stakeout states where enabled.</p>
+<h3>9.8 DRAWING</h3><p>The DRAWING category is intended for generic line/polygon work when a dedicated conventional object is not required.</p></section>
+
+<section id="s10"><h2>10. Conventional symbols and measured objects</h2><p>WorldGNSS groups field objects under TOPO, NETWORKS, VEGETATION, ROAD and DRAWING. An object may use a simple one-point measurement or a detailed reusable geometry.</p>
+<h3>10.1 Geometry principles</h3><ul><li><strong>SIMPLE:</strong> one point where meaningful.</li><li><strong>ORIENTED:</strong> two points.</li><li><strong>CIRCLE:</strong> centre + edge, or three points on the circumference.</li><li><strong>RECTANGLE:</strong> three points.</li><li><strong>LINE:</strong> N points.</li><li><strong>POLYLINE/POLYGON:</strong> N points.</li><li><strong>TARGET:</strong> one specific measured target.</li></ul>
+<h3>10.2 Detailed procedure</h3><ol><li>Choose category and object type.</li><li>If several modes exist, choose simple or detailed.</li><li>Measure requested points in order.</li><li>Follow the progress indicator.</li><li>For a line or polygon, tap Finish when all vertices are measured.</li><li>If a mistake occurs, use Cancel/Undo as appropriate. Already measured survey points may remain even if the object grouping is cancelled.</li></ol></section>
+
+<section id="s11"><h2>11. Editing points</h2><ol><li>Open <strong>Edit point</strong>.</li><li>Use search to filter the list.</li><li>Tap a point to open its edit card.</li><li>Edit ID, X, Y, Z or Type and confirm.</li><li>Long-press to open Edit / Delete.</li><li>The Add button creates a manual point and proposes the next <code>Pn</code> identifier.</li></ol><div class="warn"><span class="label">WARNING —</span> Manual coordinate editing changes project data. Verify the CRS and values before saving.</div></section>
+
+<section id="s12"><h2>12. Survey map and STATIC mode</h2>
+<h3>12.1 Map navigation</h3><p>Use pan, zoom and GNSS recentering to inspect the active survey on the OSM background.</p>
+<h3>12.2 Inspect a point</h3><p>Tap a visible point to inspect its identity and project information.</p>
+<h3>12.3 Build a polyline</h3><ol><li>Choose the object class.</li><li>Enter construction mode.</li><li>Tap an existing point to add it as a vertex, or Measure to create a new GNSS point and add it.</li><li>Repeat for the following vertices.</li><li>Use Undo to remove the last vertex.</li><li>Tap Finish when geometry is complete.</li></ol>
+<h3>12.4 Delete an object</h3><ol><li>Enter object-deletion mode.</li><li>Tap the geometry.</li><li>Confirm or cancel.</li></ol>
+<h3>12.5 STATIC in Simulation</h3><ol><li>Tap STATIC.</li><li>Simulation switches to STATIC.</li><li>Drag the GNSS head/position on the map.</li><li>The dropped position becomes the simulated GNSS position used by calculations.</li><li>Disable STATIC to restore the previous simulation profile.</li></ol><div class="warn"><span class="label">WARNING —</span> STATIC is a Simulation function. It must not replace or alter the real GNSS source in Real mode.</div>
+<h3>12.6 Viewing from Auto Survey</h3><p>The map can be used to inspect automatically collected points and the geometry formed during the session.</p></section>
+
+<section id="s13"><h2>13. Topographic plan and drawing</h2>
+<h3>13.1 Draw</h3><ol><li>Open Plan.</li><li>Choose the class: wall, fence, kerb, axis, network, surface, etc.</li><li>Tap survey points successively. If several overlap, select the correct point from the list.</li><li>Use Undo if necessary.</li><li>Tap Finish to save the geometry.</li></ol>
+<h3>13.2 Geometry actions</h3><p>Available actions depend on object type and can include selection, inspection and deletion.</p>
+<h3>13.3 Surface display</h3><p>Closed geometries can be displayed as surfaces so their extent is readable on the plan.</p></section>
+
+<section id="s14"><h2>14. Automatic survey</h2><p>Automatic Survey records points according to a distance or time condition while applying the configured quality rules.</p>
+<h3>14.1 Modes</h3><ol><li>Choose Distance or Time.</li><li>Set the threshold.</li><li>Configure precision/speed filters.</li><li>Tap Start session.</li><li>Use Pause / Resume if needed.</li><li>Tap Stop to finish.</li></ol><div class="field"><span class="label">FIELD TIP —</span> A distance mode is usually easier to interpret for a moving boundary or route; a time mode is useful when a regular temporal sampling is required.</div></section>
+
+<section id="s15"><h2>15. Area measurement</h2>
+<h3>15.1 Manual boundary survey</h3><ol><li>Open Area.</li><li>Tap Start to begin a new shape.</li><li>Stand on each vertex and tap Add point.</li><li>Check the shape drawn on OSM.</li><li>Tap Close when the boundary has at least 3 points.</li><li>Enter the shape name.</li></ol>
+<h3>15.2 AUTO</h3><p>Auto mode adds boundary points as movement reaches the configured condition, allowing a contour to be followed while moving.</p>
+<h3>15.3 Geometric checks</h3><p>The module checks that the polygon is usable and protects against invalid boundary configurations such as problematic self-crossing.</p>
+<h3>15.4 Shapes</h3><p>Saved shapes can be reopened from the Shapes list.</p>
+<h3>15.5 Map, capture and STATIC</h3><p>The OSM map provides visual control. In Simulation, STATIC can place the simulated GNSS position on the map for training and workflow testing.</p></section>
+
+<section id="s16"><h2>16. Tilt without IMU</h2><p>This module estimates the ground point from several antenna positions while the pole tip remains fixed. It does not rely on an IMU.</p>
+<h3>16.1 Conditions</h3><p>Good GNSS quality, sufficient geometric spread and a strictly stationary pole tip are essential. The module evaluates sample count, RMS and movement geometry.</p>
+<h3>16.2 Procedure</h3><ol><li>Place the pole tip exactly on the point.</li><li>Open Tilt without IMU.</li><li>Tap Start.</li><li>Keep the tip perfectly fixed and move the antenna around it to create sufficient sweep.</li><li>Monitor FIX, PDOP, sample count, RMS, computed height and spread.</li><li>When quality is reached the module may stop with a beep.</li><li>Tap Validate; the corrected point becomes the latest survey position.</li><li>Return to Survey and record it through the normal flow.</li></ol></section>
+
+<section id="s17"><h2>17. Point stakeout</h2>
+<h3>17.1 Select a target</h3><ol><li>Open Point stakeout.</li><li>Tap Choose target to search by ID, or Choose on map.</li><li>Verify target ID and coordinates.</li><li>Start guidance.</li></ol>
+<h3>17.2 Guidance</h3><p>The screen displays direction and distance information toward the target and updates from the active GNSS source.</p>
+<h3>17.3 Orientation modes</h3><p>Available orientation modes adapt the guidance reference to field use. Select the one that matches how the operator is moving and reading the screen.</p>
+<h3>17.4 Tolerance</h3><p>The tolerance defines when the current position is considered sufficiently close to the target.</p>
+<h3>17.5 Simulated field movement</h3><ol><li>In Simulation, tap Simulated field.</li><li>WorldGNSS advances the simulated position toward the target using the dedicated profile.</li><li>Stop when desired; Simulation returns to the previous profile at the reached position.</li></ol>
+<h3>17.6 Measure the staked point</h3><ol><li>Once on target, tap Measure.</li><li>Confirm or enter the ID.</li><li>WorldGNSS stores the actually measured position as a project point with a type indicating its stakeout origin.</li></ol></section>
+
+<section id="s18"><h2>18. Stakeout map selection</h2><ol><li>Open Choose on map.</li><li>Zoom/recenter if necessary.</li><li>Tap the target point.</li><li>Verify the selection.</li><li>Tap Validate.</li></ol><p>The selected target is returned to the stakeout screen and remains tied to the active project context.</p></section>
+
+<section id="s19"><h2>19. Line stakeout</h2>
+<h3>19.1 Define A and B</h3><p>A and B can come from project points, field measurement or permitted manual input. They define the reference line.</p>
+<h3>19.2 Sign convention</h3><p>Chainage/PK is measured from A toward B. Offset sign indicates the selected side of the line according to the module convention.</p>
+<h3>19.3 Compute and stake</h3><ol><li>Select or measure A.</li><li>Select or measure B.</li><li>Verify that |AB| is not nearly zero; a line shorter than about 0.05 m is refused or flagged.</li><li>Enter PK from A.</li><li>Enter offset; 0 means on the line.</li><li>Enter the target ID or keep the proposed one.</li><li>Tap Calculate.</li><li>Check sketch and coordinates.</li><li>Tap Stakeout to open locked guidance.</li></ol></section>
+
+<section id="s20"><h2>20. Intersection</h2><ol><li>Select or measure A and B.</li><li>Select or measure C and D.</li><li>Tap Calculate.</li><li>Read intersection coordinates and on-segment / outside-segment status.</li><li>Tap Stakeout to guide to the intersection or Measure to store the field point.</li></ol><div class="warn"><span class="label">WARNING —</span> The numerical intersection of two lines can exist outside one or both input segments. Always read the status, not only the coordinates.</div></section>
+
+<section id="s21"><h2>21. Reference line — 7 methods</h2><p>The Reference Line module groups seven field constructions around a base line, including chainage/offset style operations, division and parallel-line work.</p>
+<h3>21.1 General procedure</h3><ol><li>Open Reference line and choose the method.</li><li>Provide A and B.</li><li>Provide C when required.</li><li>Enter PK, distance, offset, side or division according to the method.</li><li>Tap Calculate.</li><li>Read the compact result or open Details.</li><li>When several solutions exist, select the desired computed point using the radio buttons.</li><li>Tap Stakeout or Measure as required.</li></ol>
+<h3>21.2 Division</h3><p>Division generates positions distributed along the reference geometry according to the requested division parameters.</p>
+<h3>21.3 Parallel line</h3><p>Parallel-line methods construct a line at the requested lateral offset while retaining the direction of the reference line.</p></section>
+
+<section id="s22"><h2>22. Custom CRS, local shift and TRS2D</h2>
+<h3>22.1 Manage CRS</h3><p>The CRS manager lists available systems and gives access to custom/local systems.</p>
+<h3>22.2 Edit or create a custom CRS</h3><p>Custom definitions must be entered with care. A wrong datum, projection, unit, axis convention or parameter set can produce plausible but incorrect coordinates.</p>
+<h3>22.3 Create a local CRS by translation</h3><ol><li>Measure the known point with validated GNSS.</li><li>Enter local X, Y and Z corresponding to exactly the same point.</li><li>Compute DX = Xlocal − Xmeasured, and DY/DZ likewise.</li><li>Check the values.</li><li>Use for CRS to save the local system.</li></ol>
+<h3>22.4 Create local TRS2D</h3><p>TRS2D adds rotation and scale to the planar translation.</p><ol><li>Open Manage CRS &gt; Create local TRS2D.</li><li>Verify that an active survey and a projected CRS exist; geographic WGS84 alone is not accepted as the working plane.</li><li>Create at least two source/destination pairs. The source can be a project point, current GNSS measurement or manual input.</li><li>Validate each pair before adding the next.</li><li>Tap Calculate.</li><li>Check translation, rotation, scale, RMS and residuals.</li><li>Use for CRS only if quality is acceptable.</li></ol></section>
+
+<section id="s23"><h2>23. DXF adjustment</h2>
+<h3>23.1 Load the drawing</h3><ol><li>Open Topo modules &gt; DXF adjustment.</li><li>Tap Load DXF.</li><li>Select a DXF file or browse a folder containing DXF files.</li><li>Check preview and status.</li></ol>
+<h3>23.2 Full adjustment by pairs</h3><p>Use at least three source/destination control pairs for a controlled adjustment.</p><ol><li>Select a source control point on the DXF.</li><li>Choose its field/project destination.</li><li>Repeat for at least 3 pairs.</li><li>Open Pair list to inspect or delete a pair.</li><li>Tap Calculate.</li><li>Check quality and residuals.</li><li>Export only when the result is validated.</li></ol>
+<h3>23.3 Alignment</h3><p>Alignment is intended for a simpler geometric fit when the relationship is known to be adequately described by translation, rotation and scale.</p>
+<h3>23.4 Two-point alignment</h3><ol><li>Tap source point A on the DXF.</li><li>Choose field destination A′.</li><li>Tap source point B sufficiently far from A.</li><li>Choose destination B′.</li><li>WorldGNSS computes translation, rotation and scale.</li><li>Check preview and confirm.</li><li>An optional third control point may be used to verify the fit without changing the computed parameters.</li></ol>
+<h3>23.5 Move only</h3><p>Translation-only mode shifts the drawing without rotation or scale.</p>
+<h3>23.6 Signature only</h3><p>For a drawing already correctly georeferenced in the project CRS, Signature only adds the WorldGNSS project/CRS signature without recalculating geometry after user confirmation.</p>
+<h3>23.7 Outputs</h3><p>After a valid operation, the workflow can expose actions such as Open, Share, Export and Send to Impl-CAD.</p>
+<h3>23.8 STATIC</h3><p>In Simulation, STATIC can place the simulated GNSS position on the map while checking control points. It does not alter Real-mode GNSS.</p></section>
+
+<section id="s24"><h2>24. Impl-CAD</h2>
+<h3>24.1 DXF acceptance condition</h3><p>Impl-CAD expects a drawing whose coordinate context is accepted for the active project. A calibrated/signed DXF can arrive directly from DXF adjustment. A raw drawing requires explicit confirmation only when the user certifies that it is already in the working CRS.</p>
+<h3>24.2 Load and select</h3><ol><li>Open Impl-CAD.</li><li>Select the DXF or arrive from DXF adjustment.</li><li>Check <strong>CRS ACCEPTED</strong> status.</li><li>Zoom/recenter.</li><li>Enable or disable selection lock as needed.</li><li>Select a point/vertex or segment.</li></ol>
+<h3>24.3 Stake a point</h3><ol><li>Select a point.</li><li>Tap Stake point.</li><li>WorldGNSS creates a locked target with origin <code>IMPL_CAD</code>.</li><li>Point stakeout opens.</li></ol>
+<h3>24.4 Stake a line</h3><ol><li>Select a segment, or a usable vertex belonging to a polyline.</li><li>Tap Stake line.</li><li>A and B are sent to Line stakeout and locked.</li><li>Enter PK/offset and stake it as a normal line.</li></ol>
+<h3>24.5 GNSS / STATIC</h3><p>GNSS recentering follows the active source. STATIC is available only in Simulation for manual map-position testing.</p></section>
+
+<section id="s25"><h2>25. Scan adjustment</h2>
+<h3>25.1 Formats and TIFF</h3><p>The module works with common image sources such as JPG/JPEG and PNG. Simple TIFF is supported under the application's accepted format rules; unsupported TIFF encodings are rejected with an explanatory message.</p>
+<h3>25.2 Automatic provisional calibration</h3><p>An uncalibrated image receives a provisional reference so it can be displayed: origin at the current GNSS position when available, provisional pixel size 1 m and orientation 0°. This is explicitly provisional and must not be confused with a real georeference.</p>
+<h3>25.3 Adjustment by control points</h3><ol><li>Load the image.</li><li>Tap a source point on the scan.</li><li>Choose its destination: plan, current GNSS, project point or manual input.</li><li>Repeat for at least 3 pairs.</li><li>Check Pair list.</li><li>Tap Calculate.</li><li>Read RMS, maximum error, scale and rotation.</li><li>Save calibration.</li></ol>
+<h3>25.4 Alignment</h3><p>The alignment workflow applies the same simple geometric logic as the corresponding DXF alignment when appropriate.</p>
+<h3>25.5 Main menu and outputs</h3><p>The three-dot menu groups recalibration, signature/alignment actions and post-processing outputs, including transfer to Impl-Scan where available.</p>
+<h3>25.6 STATIC</h3><p>In Simulation, STATIC helps test image control and stakeout workflows by moving the simulated GNSS position over the map.</p></section>
+
+<section id="s26"><h2>26. Impl-Scan</h2>
+<h3>26.1 Load the scan</h3><ol><li>Open Impl-Scan or send the image from Scan adjustment.</li><li>Select the image.</li><li>WorldGNSS looks for the saved calibration for that image.</li><li>Calibration is accepted only when image size and CRS match.</li></ol>
+<h3>26.2 Point mode</h3><ol><li>Choose Point.</li><li>Tap the point on the image.</li><li>WorldGNSS displays project coordinates.</li><li>Tap Stake point to create a locked <code>IMPL_SCAN</code> target.</li></ol>
+<h3>26.3 Segment mode</h3><ol><li>Choose Segment.</li><li>Tap endpoint A.</li><li>Tap endpoint B.</li><li>Check segment coordinates.</li><li>Tap Stake line to send A/B to Line stakeout.</li></ol>
+<h3>26.4 Selection lock and STATIC</h3><p>Selection lock prevents accidental map/image movement while choosing geometry. STATIC is a Simulation-only positioning aid.</p></section>
+
+<section id="s27"><h2>27. CSV / TXT import</h2>
+<h3>27.1 Step 1 — file and destination</h3><ol><li>In Survey Management tap Import.</li><li>Choose CSV/TXT.</li><li>Select the file.</li><li>Choose destination: new survey or active survey.</li></ol>
+<h3>27.2 Step 2 — CRS</h3><p>Define the source CRS correctly before conversion into the working CRS. Do not assume a file is WGS84 merely because it has numeric X/Y fields.</p>
+<h3>27.3 Step 3 — columns and vertical reference</h3><p>Map ID, X/Easting, Y/Northing and Z/height columns and specify the vertical interpretation required by the workflow.</p>
+<h3>27.4 Step 4 — summary and duplicates</h3><p>Review detected rows, valid points, rejected lines and duplicate handling before committing the import.</p>
+<h3>27.5 Geographic check</h3><p>WorldGNSS checks whether imported coordinates are plausible for the selected CRS/region.</p>
+<h3>27.6 End of import</h3><p>After validation, points are added to the chosen destination and become available to project tools.</p></section>
+
+<section id="s28"><h2>28. KML, Shapefile and DXF import</h2>
+<h3>28.1 Choose the type</h3><p>Select the correct format from the import workflow.</p>
+<h3>28.2 KML</h3><p>KML is normally geographic WGS84. WorldGNSS converts its geometry to the working project CRS while preserving the geographic reference.</p>
+<h3>28.3 Shapefile</h3><p>Shapefile import may contain points, lines and polygons. Source CRS must be known or correctly selected.</p>
+<h3>28.4 DXF</h3><p>DXF import reads supported geometric entities into the project context. A DXF with unknown or untrusted coordinate reference should first be handled through the recalibration workflow rather than assumed correct.</p>
+<h3>28.5 Summary and validation</h3><ol><li>Check file and destination.</li><li>Check source CRS and working CRS.</li><li>Check vertical reference.</li><li>Review point, line, polygon and annotation counts.</li><li>Review duplicates and errors.</li><li>Confirm import.</li></ol></section>
+
+<section id="s29"><h2>29. Project exports</h2>
+<h3>29.1 Available formats</h3><p>Depending on the workflow and selected options, WorldGNSS can export project data to formats such as DXF, complete CSV, Shapefile, KML and a packaged field deliverable.</p>
+<h3>29.2 Choose output CRS</h3><p>Always verify the target CRS. The output CRS determines exported projected coordinates and must match the recipient's requirements.</p>
+<h3>29.3 DXF</h3><p>DXF export creates CAD geometry from project points and objects. The validated WorldGNSS workflow keeps existing 2D plan layers and can include true DXF POINT entities plus a separate 3D topographic layer for XYZ geometry.</p>
+<h3>29.4 Complete CSV and height</h3><p>Complete CSV exports point attributes and coordinates. Verify whether the requested Z corresponds to the project/ground height convention used by the job.</p>
+<h3>29.5 Field package</h3><ol><li>Choose PACK.</li><li>Select desired elements: DXF, complete CSV, Shapefile, KML, Photos, Notes.</li><li>Ensure at least one item is selected.</li><li>Choose target CRS.</li><li>Export.</li></ol></section>
+
+<section id="s30"><h2>30. Backups and field log</h2>
+<h3>30.1 Complete ZIP backup</h3><p>Create a complete WorldGNSS ZIP backup at important project milestones and at the end of the field day.</p>
+<h3>30.2 Restore a backup</h3><ol><li>Choose Restore ZIP backup.</li><li>Select a WorldGNSS ZIP.</li><li>Read the summary: project, points, CRS, quality, media, integrity and warnings.</li><li>Read the transactional restore warning.</li><li>Confirm only when the content is expected.</li></ol>
+<h3>30.3 Field log</h3><p>The field log records useful project events so important operations can be traced later.</p></section>
+
+<section id="s31"><h2>31. Simulation mode, Pro Pack and professional outputs</h2>
+<h3>31.1 Simulation</h3><p>Simulation is intended for learning, preparation, demonstrations and workflow testing without a physical receiver. It provides a controlled simulated GNSS source and, on OSM screens, STATIC where implemented.</p>
+<h3>31.2 Real</h3><p>Real mode uses the connected GNSS receiver and the real quality/precision pipeline. In the current commercial architecture it belongs to the Pro workflow.</p>
+<h3>31.3 Professional outputs</h3><p>Some professional outputs may be restricted according to the application's Free/Pro commercial rules. A restricted output must not silently masquerade as a successful professional export.</p></section>
+
+<section id="s32"><h2>32. Safety rules and important messages</h2><ul><li>Do not change the CRS while an active survey is locked to its session context.</li><li>Do not open a Simulation survey in Real mode or a Real survey in Simulation.</li><li>Do not interpret stale GNSS data as a current measurement.</li><li>Do not invent precision when GST information is absent; <code>PR ---</code> means unknown precision.</li><li>Check antenna height before measuring.</li><li>Read FLOAT/SINGLE acceptance settings before field use.</li><li>For DXF or scan workflows, distinguish a provisional/display calibration from a validated georeference.</li><li>Review RMS and residuals before accepting TRS2D, DXF or Scan transformations.</li><li>Back up the survey before major imports, restorations or end-of-day delivery.</li></ul>
+<h3>32.1 Do not confuse phone position with survey region</h3><p>The phone location can help initialise a new project or detect a region, but an existing survey carries its own geographic context. WorldGNSS must not redefine that survey solely because the phone is currently somewhere else.</p></section>
+
+<section id="s33"><h2>33. Example: a complete field day</h2><ol><li>Start WorldGNSS Field and choose the language.</li><li>Choose REAL MODE on site with the Pro workflow, or SIMULATION MODE for office training.</li><li>Open Projects and define the CRS: Locate or enter the region manually, check country and UTM zone, then select the working CRS.</li><li>Create the survey and give it a clear job name.</li><li>In Real mode, open Connections, connect the receiver and check FIX, precision, satellites, DOP and base state. In Simulation, verify the simulated source.</li><li>Set antenna height and survey precision rules.</li><li>Open Survey, choose TOPO / NETWORKS / VEGETATION / ROAD types and measure points.</li><li>Add notes and photos where useful.</li><li>Use Map or Plan to connect points and create project objects.</li><li>For a boundary, use Area and save the shape.</li><li>For design positions, select a Point target or use Line stakeout / Intersection / Reference line.</li><li>For an external CAD plan, use DXF adjustment then Impl-CAD; for an image plan, use Scan adjustment then Impl-Scan.</li><li>At the end, open Export / Share and create the requested DXF, CSV, SHP, KML or field package.</li><li>Finally create a complete ZIP backup and store it safely.</li></ol></section>
+
+<section id="a"><h2>Appendix A. Object catalogue and detailed geometries</h2><p>The catalogue is organised around the five main field families shown in the Survey screen:</p><table class="compact-table"><tr><th>Family</th><th>Typical use</th><th>Possible geometry</th></tr><tr><td>TOPO</td><td>Survey/control points and general topographic features.</td><td>Simple point, oriented point, line/polyline depending on object.</td></tr><tr><td>NETWORKS</td><td>Electricity, sewer/water, telecom and gas features.</td><td>Point equipment, oriented symbol, line/polyline network.</td></tr><tr><td>VEGETATION</td><td>Trees and vegetation-related objects.</td><td>Point, oriented object or circle where relevant.</td></tr><tr><td>ROAD</td><td>Kerbs, road edges, axes and road furniture.</td><td>Point, line or polyline.</td></tr><tr><td>DRAWING</td><td>Generic geometry not tied to a dedicated catalogue symbol.</td><td>Point, line, polyline or polygon.</td></tr></table><p>Detailed object measurement reuses generic geometries: SIMPLE 1 point, ORIENTED 2 points, CIRCLE centre+edge, CIRCLE 3 circumference points, RECTANGLE 3 points, LINE N points, POLYLINE N points and TARGET single point.</p></section>
+
+<section id="b"><h2>Appendix B. Complete capture plan</h2><p>The French illustrated PDF contains capture markers C01–C44. The numbering is intentionally language-neutral so the same image can be referenced from the English and Arabic manuals. Examples include language selection, Simulation configuration, Home, CRS/Project, survey management, GNSS status, Survey, conventional objects, Map/STATIC, Plan, Auto Survey, Area, Tilt, Point/Line stakeout, calculations, DXF, Scan, imports, exports, backup and field log.</p><p><a href="WorldGNSS_Field_Manuel_Terrain_FR_Illustre_Complet_1.1.pdf" target="_blank" rel="noopener">Open the 70-page illustrated French PDF to view C01–C44.</a></p></section>
+
+<section id="c"><h2>Appendix C. Field glossary</h2><table class="compact-table"><tr><th>Term</th><th>Meaning in WorldGNSS Field</th></tr><tr><td>CRS</td><td>Coordinate Reference System used to interpret coordinates.</td></tr><tr><td>WGS84</td><td>Geographic pivot/reference used by WorldGNSS workflows.</td></tr><tr><td>UTM</td><td>Universal Transverse Mercator projected zone system.</td></tr><tr><td>RTK FIX</td><td>Resolved carrier-phase RTK solution normally accepted for precise survey.</td></tr><tr><td>RTK FLOAT</td><td>Unresolved RTK solution, rejected by default unless explicitly allowed.</td></tr><tr><td>PDOP</td><td>Position Dilution of Precision indicator.</td></tr><tr><td>GST</td><td>NMEA sentence commonly used for GNSS solution error/precision information.</td></tr><tr><td>STATIC</td><td>Simulation-only mode where the simulated GNSS head can be placed manually on an OSM map.</td></tr><tr><td>TRS2D</td><td>2D translation + rotation + scale transformation.</td></tr><tr><td>RMS</td><td>Root Mean Square residual/error indicator used to assess a fit.</td></tr><tr><td>PK / chainage</td><td>Distance measured along a reference line from its origin A.</td></tr><tr><td>Offset</td><td>Perpendicular distance from a reference line.</td></tr><tr><td>Impl-CAD</td><td>Stakeout from an accepted/georeferenced DXF drawing.</td></tr><tr><td>Impl-Scan</td><td>Stakeout from a calibrated raster image/scan.</td></tr></table></section>
+
+<p style="margin-top:42px"><a class="btn primary" href="#s2">Back to contents</a></p>
+</div></main>
+<footer class="manual-footer">© <span data-year></span> WorldGNSS Field — Official English field manual. <a href="index.html">Official website</a> · <a href="WorldGNSS_Field_Manuel_Terrain_FR_Illustre_Complet_1.1.pdf">FR PDF</a> · <a href="manual-ar.html">العربية</a></footer>
+<script src="assets/js/site.js"></script>
+</body>
+</html>
